@@ -4,7 +4,7 @@
 ### MultipleDispatchATL/MultipleDispatchATL.idl
 ...
 ```cpp
-interface ISimpleObject2 : **ISimpleObject** \
+interface ISimpleObject2 : ISimpleObject
 {
 	//[id(1)] HRESULT Method2([in] int n, [out, retval] int* ret);
 	// add-2nd-interface (changed the id because 1 is already used by ISimpleObject::Method1()
