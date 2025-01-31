@@ -22,7 +22,7 @@ interface ISimpleObject2 : ISimpleObject
 	};
 ```
 ...
-### SimpleOjectXO.h
+### MultipleDispatchATL/SimpleOjectXO.h
 ...
 ```cpp
 class ATL_NO_VTABLE CSimpleObjectXO :
@@ -110,7 +110,7 @@ static void SetOANoCache()
 ```
 ...
 ```cpp
-	// pour mettre en évidence plus rapidement les erreurs de gestion (mémoire) des chaine OLE (BSTR), genre plusieurs free sur le même BSTR
+	// pour mettre en évidence plus rapidement les erreurs de gestion (mémoire) des chaines OLE (BSTR), genre plusieurs free sur le même BSTR
 	/* par exemple: dans ISimpleObject::Method1(), faire 
 	* *ret = bstrt;
 	* alors qu'il faut faire
