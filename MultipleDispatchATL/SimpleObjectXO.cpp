@@ -9,7 +9,8 @@ STDMETHODIMP CSimpleObjectXO::InterfaceSupportsErrorInfo(REFIID riid)
 {
 	static const IID* const arr[] = 
 	{
-		&IID_ISimpleObject
+		&IID_ISimpleObject,
+		&IID_ISimpleObject2,
 	};
 
 	for (int i=0; i < sizeof(arr) / sizeof(arr[0]); i++)
