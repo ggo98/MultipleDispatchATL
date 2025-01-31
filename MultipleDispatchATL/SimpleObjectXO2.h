@@ -1,4 +1,5 @@
-// SimpleObjectXO.h : Declaration of the CSimpleObjectXO
+// SimpleObjectXO2.h : Declaration of the CSimpleObjectXO2
+/* NOTE: classe pas utilisée, générée pour avoir du code généré automatiquement (.idl, ...) */
 
 #pragma once
 #include "resource.h"       // main symbols
@@ -16,35 +17,27 @@
 using namespace ATL;
 
 
-// CSimpleObjectXO
+// CSimpleObjectXO2
 
-class ATL_NO_VTABLE CSimpleObjectXO :
+class ATL_NO_VTABLE CSimpleObjectXO2 :
 	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CSimpleObjectXO, &CLSID_SimpleObjectXO>,
+	public CComCoClass<CSimpleObjectXO2, &CLSID_SimpleObjectXO2>,
 	public ISupportErrorInfo,
-	//public IDispatchImpl<ISimpleObject, &IID_ISimpleObject, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	// add-2nd-interface
 	public IDispatchImpl<ISimpleObject2, &IID_ISimpleObject2, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
 public:
-	CSimpleObjectXO()
+	CSimpleObjectXO2()
 	{
 	}
 
-DECLARE_REGISTRY_RESOURCEID(106)
+DECLARE_REGISTRY_RESOURCEID(107)
 
 
-BEGIN_COM_MAP(CSimpleObjectXO)
-	COM_INTERFACE_ENTRY(ISimpleObject)
-
-	//COM_INTERFACE_ENTRY(IDispatch)
-	// add-2nd-interface
+BEGIN_COM_MAP(CSimpleObjectXO2)
 	COM_INTERFACE_ENTRY(ISimpleObject2)
-	COM_INTERFACE_ENTRY2(IDispatch, ISimpleObject2)
-
+	COM_INTERFACE_ENTRY(IDispatch)
 	COM_INTERFACE_ENTRY(ISupportErrorInfo)
 END_COM_MAP()
-
 
 // ISupportsErrorInfo
 	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
@@ -65,10 +58,7 @@ public:
 
 
 
-	STDMETHOD(Method1)(BSTR str, BSTR* ret);
-
-	// add-2nd-interface
 	STDMETHOD(Method2)(int n, int* ret);
 };
 
-OBJECT_ENTRY_AUTO(__uuidof(SimpleObjectXO), CSimpleObjectXO)
+//OBJECT_ENTRY_AUTO(__uuidof(SimpleObjectXO2), CSimpleObjectXO2)

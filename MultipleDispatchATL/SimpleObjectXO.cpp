@@ -31,3 +31,10 @@ STDMETHODIMP CSimpleObjectXO::Method1(BSTR str, BSTR* ret)
 
 	return S_OK;
 }
+
+STDMETHODIMP CSimpleObjectXO::Method2(int n, int* ret)
+{
+	*ret = n + 2;
+
+	return S_OK;
+}

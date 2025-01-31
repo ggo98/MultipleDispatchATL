@@ -40,6 +40,9 @@
     <ClInclude Include="SimpleObjectXO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleObjectXO2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MultipleDispatchATL.cpp">
@@ -55,6 +58,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SimpleObjectXO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleObjectXO2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,6 +81,9 @@
     </None>
     <None Include="__VBS\test.VBS">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="SimpleObjectXO2.rgs">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

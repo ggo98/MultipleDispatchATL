@@ -59,6 +59,13 @@ typedef interface ISimpleObject ISimpleObject;
 #endif 	/* __ISimpleObject_FWD_DEFINED__ */
 
 
+#ifndef __ISimpleObject2_FWD_DEFINED__
+#define __ISimpleObject2_FWD_DEFINED__
+typedef interface ISimpleObject2 ISimpleObject2;
+
+#endif 	/* __ISimpleObject2_FWD_DEFINED__ */
+
+
 #ifndef __SimpleObjectXO_FWD_DEFINED__
 #define __SimpleObjectXO_FWD_DEFINED__
 
@@ -69,6 +76,18 @@ typedef struct SimpleObjectXO SimpleObjectXO;
 #endif /* __cplusplus */
 
 #endif 	/* __SimpleObjectXO_FWD_DEFINED__ */
+
+
+#ifndef __SimpleObjectXO2_FWD_DEFINED__
+#define __SimpleObjectXO2_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class SimpleObjectXO2 SimpleObjectXO2;
+#else
+typedef struct SimpleObjectXO2 SimpleObjectXO2;
+#endif /* __cplusplus */
+
+#endif 	/* __SimpleObjectXO2_FWD_DEFINED__ */
 
 
 /* header files for imported files */
@@ -221,6 +240,156 @@ EXTERN_C const IID IID_ISimpleObject;
 #endif 	/* __ISimpleObject_INTERFACE_DEFINED__ */
 
 
+#ifndef __ISimpleObject2_INTERFACE_DEFINED__
+#define __ISimpleObject2_INTERFACE_DEFINED__
+
+/* interface ISimpleObject2 */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_ISimpleObject2;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("80faa31e-8e30-4711-9f7a-e530836f5be5")
+    ISimpleObject2 : public ISimpleObject
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Method2( 
+            /* [in] */ int n,
+            /* [retval][out] */ int *ret) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct ISimpleObject2Vtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ISimpleObject2 * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ISimpleObject2 * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ISimpleObject2 * This);
+        
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            ISimpleObject2 * This,
+            /* [out] */ UINT *pctinfo);
+        
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            ISimpleObject2 * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            ISimpleObject2 * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            ISimpleObject2 * This,
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
+        
+        DECLSPEC_XFGVIRT(ISimpleObject, Method1)
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Method1 )( 
+            ISimpleObject2 * This,
+            /* [in] */ BSTR str,
+            /* [retval][out] */ BSTR *ret);
+        
+        DECLSPEC_XFGVIRT(ISimpleObject2, Method2)
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Method2 )( 
+            ISimpleObject2 * This,
+            /* [in] */ int n,
+            /* [retval][out] */ int *ret);
+        
+        END_INTERFACE
+    } ISimpleObject2Vtbl;
+
+    interface ISimpleObject2
+    {
+        CONST_VTBL struct ISimpleObject2Vtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ISimpleObject2_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ISimpleObject2_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ISimpleObject2_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ISimpleObject2_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define ISimpleObject2_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define ISimpleObject2_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define ISimpleObject2_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define ISimpleObject2_Method1(This,str,ret)	\
+    ( (This)->lpVtbl -> Method1(This,str,ret) ) 
+
+
+#define ISimpleObject2_Method2(This,n,ret)	\
+    ( (This)->lpVtbl -> Method2(This,n,ret) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ISimpleObject2_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __MultipleDispatchATLLib_LIBRARY_DEFINED__
 #define __MultipleDispatchATLLib_LIBRARY_DEFINED__
@@ -237,6 +406,14 @@ EXTERN_C const CLSID CLSID_SimpleObjectXO;
 
 class DECLSPEC_UUID("77199078-c6c5-4017-b20d-183ac1f414de")
 SimpleObjectXO;
+#endif
+
+EXTERN_C const CLSID CLSID_SimpleObjectXO2;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("2f4c7806-0729-4613-9bc2-fd8fd530a6b2")
+SimpleObjectXO2;
 #endif
 #endif /* __MultipleDispatchATLLib_LIBRARY_DEFINED__ */
 

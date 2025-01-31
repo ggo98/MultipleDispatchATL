@@ -19,6 +19,19 @@ interface ISimpleObject : IDispatch
 	[id(1)] HRESULT Method1([in] BSTR str, [out, retval] BSTR* ret);
 };
 [
+	object,
+	uuid(80faa31e-8e30-4711-9f7a-e530836f5be5),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+//interface ISimpleObject2 : IDispatch
+// add-2nd-interface
+interface ISimpleObject2 : ISimpleObject
+{
+	[id(2)] HRESULT Method2([in] int n, [out, retval] int* ret);
+};
+[
 	uuid(8deb85d1-cbbc-4cda-bfed-6e348e79df19),
 	version(1.0),
 ]
@@ -30,8 +43,22 @@ library MultipleDispatchATLLib
 	]
 	coclass SimpleObjectXO
 	{
-		[default] interface ISimpleObject;
+		//[default] interface ISimpleObject;
+		// add-2nd-interface
+		[default] interface ISimpleObject2;
+		interface ISimpleObject;
+	};
+	
+	// add-2nd-interface
+	// objet inutile, créé juste pour avoir du code généré automatiquement => peut être supprimé dans la version finale.
+	[
+		uuid(2f4c7806-0729-4613-9bc2-fd8fd530a6b2)
+	]
+	coclass SimpleObjectXO2
+	{
+		[default] interface ISimpleObject2;
 	};
 };
 
+import "shobjidl.idl";
 import "shobjidl.idl";

@@ -34,4 +34,7 @@
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="__MYREADME.txt" />
+  </ItemGroup>
 </Project>
