@@ -78,18 +78,6 @@ typedef struct SimpleObjectXO SimpleObjectXO;
 #endif 	/* __SimpleObjectXO_FWD_DEFINED__ */
 
 
-#ifndef __SimpleObjectXO2_FWD_DEFINED__
-#define __SimpleObjectXO2_FWD_DEFINED__
-
-#ifdef __cplusplus
-typedef class SimpleObjectXO2 SimpleObjectXO2;
-#else
-typedef struct SimpleObjectXO2 SimpleObjectXO2;
-#endif /* __cplusplus */
-
-#endif 	/* __SimpleObjectXO2_FWD_DEFINED__ */
-
-
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -406,14 +394,6 @@ EXTERN_C const CLSID CLSID_SimpleObjectXO;
 
 class DECLSPEC_UUID("77199078-c6c5-4017-b20d-183ac1f414de")
 SimpleObjectXO;
-#endif
-
-EXTERN_C const CLSID CLSID_SimpleObjectXO2;
-
-#ifdef __cplusplus
-
-class DECLSPEC_UUID("2f4c7806-0729-4613-9bc2-fd8fd530a6b2")
-SimpleObjectXO2;
 #endif
 #endif /* __MultipleDispatchATLLib_LIBRARY_DEFINED__ */
 

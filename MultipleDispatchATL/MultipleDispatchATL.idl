@@ -48,17 +48,7 @@ library MultipleDispatchATLLib
 		[default] interface ISimpleObject2;
 		interface ISimpleObject;
 	};
-	
-	// add-2nd-interface
-	// objet inutile, créé juste pour avoir du code généré automatiquement => peut être supprimé dans la version finale.
-	[
-		uuid(2f4c7806-0729-4613-9bc2-fd8fd530a6b2)
-	]
-	coclass SimpleObjectXO2
-	{
-		[default] interface ISimpleObject2;
 	};
-};
 
 import "shobjidl.idl";
 import "shobjidl.idl";
