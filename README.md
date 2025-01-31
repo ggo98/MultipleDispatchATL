@@ -7,7 +7,7 @@
 interface ISimpleObject2 : ISimpleObject
 {
 	//[id(1)] HRESULT Method2([in] int n, [out, retval] int* ret);
-	// add-2nd-interface (changed the id because 1 is already used by ISimpleObject::Method1()
+	// add-2nd-interface (changed the id because 1 is already used by ISimpleObject::Method1())
 	[id(2)] HRESULT Method2([in] int n, [out, retval] int* ret); // id(2)
 };
 ```
