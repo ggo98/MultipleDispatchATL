@@ -20,36 +20,39 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{77F1646E-72CA-426D-85DB-2E54B2CCBD9A}</ProjectGuid>
-    <Keyword>AtlProj</Keyword>
+    <ProjectGuid>{B6C0FE0D-454A-4C36-989C-2A40893D9E4F}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>MFCClient</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
@@ -72,211 +75,139 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>MultipleDispatchATL_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MultipleDispatchATL_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MultipleDispatchATL_p.c</ProxyFileName>
-      <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)MultipleDispatchATL.tlb</TypeLibraryName>
-      <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <ModuleDefinitionFile>.\MultipleDispatchATL.def</ModuleDefinitionFile>
-      <RegisterOutput>true</RegisterOutput>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>MultipleDispatchATL_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MultipleDispatchATL_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MultipleDispatchATL_p.c</ProxyFileName>
-      <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)MultipleDispatchATL.tlb</TypeLibraryName>
-      <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <ModuleDefinitionFile>.\MultipleDispatchATL.def</ModuleDefinitionFile>
-      <RegisterOutput>true</RegisterOutput>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>MultipleDispatchATL_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MultipleDispatchATL_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MultipleDispatchATL_p.c</ProxyFileName>
-      <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)MultipleDispatchATL.tlb</TypeLibraryName>
-      <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <ModuleDefinitionFile>.\MultipleDispatchATL.def</ModuleDefinitionFile>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <RegisterOutput>true</RegisterOutput>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>MultipleDispatchATL_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>MultipleDispatchATL_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>MultipleDispatchATL_p.c</ProxyFileName>
-      <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)MultipleDispatchATL.tlb</TypeLibraryName>
-      <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <ModuleDefinitionFile>.\MultipleDispatchATL.def</ModuleDefinitionFile>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <RegisterOutput>true</RegisterOutput>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="dllmain.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="MultipleDispatchATL_i.h" />
+    <ClInclude Include="MFCClient.h" />
+    <ClInclude Include="MFCClientDlg.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="SimpleObjectXO.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="MultipleDispatchATL.cpp" />
-    <ClCompile Include="MultipleDispatchATL_i.c">
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="MFCClient.cpp" />
+    <ClCompile Include="MFCClientDlg.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SimpleObjectXO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MultipleDispatchATL.rc" />
+    <ResourceCompile Include="MFCClient.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MultipleDispatchATL.def" />
-    <None Include="MultipleDispatchATL.rgs" />
-    <None Include="SimpleObjectXO.rgs" />
-    <None Include="__VBS\test.VBS" />
+    <None Include="res\MFCClient.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="MultipleDispatchATL.idl" />
+    <Image Include="res\MFCClient.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
