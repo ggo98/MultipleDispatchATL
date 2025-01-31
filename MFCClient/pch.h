@@ -14,4 +14,6 @@
 
 #include "../msvcwarn.h"
 
+#import "../MultipleDispatchATL/MultipleDispatchATL.tlb"
+
 #endif //PCH_H

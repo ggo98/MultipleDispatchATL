@@ -8,11 +8,30 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
+	object,
+	uuid(d9fe7982-a648-4bc6-9b2b-a7d51adb8a63),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISimpleObject : IDispatch
+{
+	[id(1)] HRESULT Method1([in] BSTR str, [out, retval] BSTR* ret);
+};
+[
 	uuid(8deb85d1-cbbc-4cda-bfed-6e348e79df19),
 	version(1.0),
 ]
 library MultipleDispatchATLLib
 {
 	importlib("stdole2.tlb");
+	[
+		uuid(77199078-c6c5-4017-b20d-183ac1f414de)
+	]
+	coclass SimpleObjectXO
+	{
+		[default] interface ISimpleObject;
+	};
 };
 
+import "shobjidl.idl";

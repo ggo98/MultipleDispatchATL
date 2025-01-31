@@ -1,0 +1,26 @@
+HKCR
+{
+	MultipleDispatchXO.SimpleObject.1.1 = s 'SimpleObjectXO class'
+	{
+		CLSID = s '{77199078-c6c5-4017-b20d-183ac1f414de}'
+	}
+	MultipleDispatchXO.SimpleObject.1 = s 'SimpleObjectXO class'
+	{		
+		CurVer = s 'MultipleDispatchXO.SimpleObject.1.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {77199078-c6c5-4017-b20d-183ac1f414de} = s 'SimpleObjectXO class'
+		{
+			ProgID = s 'MultipleDispatchXO.SimpleObject.1.1'
+			VersionIndependentProgID = s 'MultipleDispatchXO.SimpleObject.1'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{8deb85d1-cbbc-4cda-bfed-6e348e79df19}'
+			Version = s '1.0'
+		}
+	}
+}
