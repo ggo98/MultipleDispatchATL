@@ -93,10 +93,17 @@ void CMFCClientDlg::OnBnClickedOk()
 {
 	try
 	{
-		MultipleDispatchATLLib::ISimpleObjectPtr I(__uuidof(MultipleDispatchATLLib::SimpleObjectXO));
+		//MultipleDispatchATLLib::ISimpleObjectPtr I(__uuidof(MultipleDispatchATLLib::SimpleObjectXO));
+		// add-2nd-interface
+		MultipleDispatchATLLib::ISimpleObject2Ptr I(__uuidof(MultipleDispatchATLLib::SimpleObjectXO));
+
 		//for (int i = 0; i < 100000; i++)
 		//	I->Method1("MFC");
 		AfxMessageBox(I->Method1("MFC"));
+
+		CString s;
+		s.Format(L"%d", I->Method2(10));
+		AfxMessageBox(s);
 	}
 	catch (_com_error e)
 	{
