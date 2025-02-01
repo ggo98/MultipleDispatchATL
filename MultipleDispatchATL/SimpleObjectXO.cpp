@@ -39,3 +39,12 @@ STDMETHODIMP CSimpleObjectXO::Method2(int n, int* ret)
 
 	return S_OK;
 }
+
+STDMETHODIMP CSimpleObjectXO::SomeOtherMethod()
+{
+    AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+    AfxMessageBox(L"In SomeOtherMethod (unrelated to ISimpleObject or ISimpleObject2");
+
+    return S_OK;
+}

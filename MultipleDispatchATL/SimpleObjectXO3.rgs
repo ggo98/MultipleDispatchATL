@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {1f3eefea-7068-4119-bd9d-fda0b350641b} = s 'SimpleObjectXO3 class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{8deb85d1-cbbc-4cda-bfed-6e348e79df19}'
+			Version = s '1.0'
+		}
+	}
+}
