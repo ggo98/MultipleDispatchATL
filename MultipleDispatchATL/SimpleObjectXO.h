@@ -24,7 +24,9 @@ class ATL_NO_VTABLE CSimpleObjectXO :
 	public ISupportErrorInfo,
 	//public IDispatchImpl<ISimpleObject, &IID_ISimpleObject, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
 	// add-2nd-interface
-	public IDispatchImpl<ISimpleObject2, &IID_ISimpleObject2, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<ISimpleObject2, &IID_ISimpleObject2, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	// add-3rd-interface
+	public IDispatchImpl<ISomeOtherInterface, &IID_ISomeOtherInterface, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
 public:
 	CSimpleObjectXO()
@@ -41,6 +43,10 @@ BEGIN_COM_MAP(CSimpleObjectXO)
 	// add-2nd-interface
 	COM_INTERFACE_ENTRY(ISimpleObject2)
 	COM_INTERFACE_ENTRY2(IDispatch, ISimpleObject2)
+
+	// add-3rd-interface
+	COM_INTERFACE_ENTRY(ISomeOtherInterface)
+	COM_INTERFACE_ENTRY2(IDispatch, ISomeOtherInterface)
 
 	COM_INTERFACE_ENTRY(ISupportErrorInfo)
 END_COM_MAP()
@@ -69,6 +75,9 @@ public:
 
 	// add-2nd-interface
 	STDMETHOD(Method2)(int n, int* ret);
+
+	// add-3rd-interface
+	STDMETHOD(SomeOtherMethod)(void);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(SimpleObjectXO), CSimpleObjectXO)

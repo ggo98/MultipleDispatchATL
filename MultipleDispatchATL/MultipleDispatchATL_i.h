@@ -66,6 +66,13 @@ typedef interface ISimpleObject2 ISimpleObject2;
 #endif 	/* __ISimpleObject2_FWD_DEFINED__ */
 
 
+#ifndef __ISomeOtherInterface_FWD_DEFINED__
+#define __ISomeOtherInterface_FWD_DEFINED__
+typedef interface ISomeOtherInterface ISomeOtherInterface;
+
+#endif 	/* __ISomeOtherInterface_FWD_DEFINED__ */
+
+
 #ifndef __SimpleObjectXO_FWD_DEFINED__
 #define __SimpleObjectXO_FWD_DEFINED__
 
@@ -376,6 +383,142 @@ EXTERN_C const IID IID_ISimpleObject2;
 
 
 #endif 	/* __ISimpleObject2_INTERFACE_DEFINED__ */
+
+
+#ifndef __ISomeOtherInterface_INTERFACE_DEFINED__
+#define __ISomeOtherInterface_INTERFACE_DEFINED__
+
+/* interface ISomeOtherInterface */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_ISomeOtherInterface;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("7bd0ea72-a67b-4908-acde-b3bff166fc01")
+    ISomeOtherInterface : public IDispatch
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SomeOtherMethod( void) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct ISomeOtherInterfaceVtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ISomeOtherInterface * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ISomeOtherInterface * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ISomeOtherInterface * This);
+        
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            ISomeOtherInterface * This,
+            /* [out] */ UINT *pctinfo);
+        
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            ISomeOtherInterface * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            ISomeOtherInterface * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            ISomeOtherInterface * This,
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
+        
+        DECLSPEC_XFGVIRT(ISomeOtherInterface, SomeOtherMethod)
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SomeOtherMethod )( 
+            ISomeOtherInterface * This);
+        
+        END_INTERFACE
+    } ISomeOtherInterfaceVtbl;
+
+    interface ISomeOtherInterface
+    {
+        CONST_VTBL struct ISomeOtherInterfaceVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ISomeOtherInterface_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ISomeOtherInterface_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ISomeOtherInterface_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ISomeOtherInterface_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define ISomeOtherInterface_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define ISomeOtherInterface_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define ISomeOtherInterface_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define ISomeOtherInterface_SomeOtherMethod(This)	\
+    ( (This)->lpVtbl -> SomeOtherMethod(This) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ISomeOtherInterface_INTERFACE_DEFINED__ */
 
 
 

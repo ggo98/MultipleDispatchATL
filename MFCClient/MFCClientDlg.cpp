@@ -104,6 +104,9 @@ void CMFCClientDlg::OnBnClickedOk()
 		CString s;
 		s.Format(L"%d", I->Method2(10));
 		AfxMessageBox(s);
+
+		MultipleDispatchATLLib::ISomeOtherInterfacePtr I2 = I;
+		I2->SomeOtherMethod();
 	}
 	catch (_com_error e)
 	{
