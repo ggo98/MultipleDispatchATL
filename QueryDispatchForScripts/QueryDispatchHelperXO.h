@@ -1,12 +1,11 @@
-// SimpleObjectXO2.h : Declaration of the CSimpleObjectXO2
-/* NOTE: classe pas utilisée, générée pour avoir du code généré automatiquement (.idl, ...) */
+// QueryDispatchHelperXO.h : Declaration of the CQueryDispatchHelperXO
 
 #pragma once
 #include "resource.h"       // main symbols
 
 
 
-#include "MultipleDispatchATL_i.h"
+#include "QueryDispatchForScripts_i.h"
 
 
 
@@ -17,24 +16,29 @@
 using namespace ATL;
 
 
-// CSimpleObjectXO2
+// CQueryDispatchHelperXO
 
-class ATL_NO_VTABLE CSimpleObjectXO2 :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CSimpleObjectXO2, &CLSID_SimpleObjectXO2>,
+class ATL_NO_VTABLE CQueryDispatchHelperXO :
+	public CComObjectRootEx<CComMultiThreadModel>,
+	public CComCoClass<CQueryDispatchHelperXO, &CLSID_QueryDispatchHelperXO>,
 	public ISupportErrorInfo,
-	public IDispatchImpl<ISimpleObject2, &IID_ISimpleObject2, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<IQueryDispatchHelper, &IID_IQueryDispatchHelper, &LIBID_QueryDispatchForScriptsLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
 public:
-	CSimpleObjectXO2()
+	CQueryDispatchHelperXO()
 	{
 	}
 
-DECLARE_REGISTRY_RESOURCEID(107)
+	~CQueryDispatchHelperXO()
+	{
+		::MessageBox(0, L"CQueryDispatchHelperXOdtor", L"", MB_SERVICE_NOTIFICATION);
+	}
+
+DECLARE_REGISTRY_RESOURCEID(106)
 
 
-BEGIN_COM_MAP(CSimpleObjectXO2)
-	COM_INTERFACE_ENTRY(ISimpleObject2)
+BEGIN_COM_MAP(CQueryDispatchHelperXO)
+	COM_INTERFACE_ENTRY(IQueryDispatchHelper)
 	COM_INTERFACE_ENTRY(IDispatch)
 	COM_INTERFACE_ENTRY(ISupportErrorInfo)
 END_COM_MAP()
@@ -58,7 +62,7 @@ public:
 
 
 
-	STDMETHOD(Method2)(int n, int* ret);
+	STDMETHOD(QueryDispatch)(IDispatch* I, BSTR IIDStr, IDispatch** ret);
 };
 
-//OBJECT_ENTRY_AUTO(__uuidof(SimpleObjectXO2), CSimpleObjectXO2)
+OBJECT_ENTRY_AUTO(__uuidof(QueryDispatchHelperXO), CQueryDispatchHelperXO)

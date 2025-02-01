@@ -11,6 +11,7 @@ STDMETHODIMP CSimpleObjectXO::InterfaceSupportsErrorInfo(REFIID riid)
 	{
 		&IID_ISimpleObject,
 		&IID_ISimpleObject2,
+		&IID_ISomeOtherInterface,
 	};
 
 	for (int i=0; i < sizeof(arr) / sizeof(arr[0]); i++)

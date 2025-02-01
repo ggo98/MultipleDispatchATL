@@ -1,0 +1,26 @@
+HKCR
+{
+	QueryDispatchForScripts.QueryDispatchHelper.1 = s 'QueryDispatchHelperXO class'
+	{
+		CLSID = s '{fa10125b-887b-424f-a69b-37d0df6e22f9}'
+	}
+	QueryDispatchForScripts.QueryDispatchHelper = s 'QueryDispatchHelperXO class'
+	{		
+		CurVer = s 'QueryDispatchForScripts.QueryDispatch.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {fa10125b-887b-424f-a69b-37d0df6e22f9} = s 'QueryDispatchHelperXO class'
+		{
+			ProgID = s 'QueryDispatchForScripts.QueryDispatch.1'
+			VersionIndependentProgID = s 'QueryDispatchForScripts.QueryDispatchHelper'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{23747e63-7faa-4dbf-91e1-453f191e7525}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,37 @@
+// QueryDispatchForScripts.idl : IDL source for QueryDispatchForScripts
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (QueryDispatchForScripts.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(cb1e0039-d4a3-43a8-84ed-1d8760caff58),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IQueryDispatchHelper : IDispatch
+{
+	[id(1)] HRESULT QueryDispatch([in] IDispatch* I, [in] BSTR IIDStr, [out, retval] IDispatch** ret);
+};
+[
+	uuid(23747e63-7faa-4dbf-91e1-453f191e7525),
+	version(1.0),
+]
+library QueryDispatchForScriptsLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(fa10125b-887b-424f-a69b-37d0df6e22f9)
+	]
+	coclass QueryDispatchHelperXO
+	{
+		[default] interface IQueryDispatchHelper;
+	};
+};
+
+import "shobjidl.idl";
