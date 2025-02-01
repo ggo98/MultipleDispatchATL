@@ -33,6 +33,11 @@ public:
 	{
 	}
 
+	~CSimpleObjectXO()
+	{
+		AfxMessageBox(L"CSimpleObjectXO dtor", MB_SERVICE_NOTIFICATION);
+	}
+
 DECLARE_REGISTRY_RESOURCEID(106)
 
 
