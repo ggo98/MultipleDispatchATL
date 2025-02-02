@@ -49,3 +49,15 @@ STDMETHODIMP CSimpleObjectXO::SomeOtherMethod()
 
     return S_OK;
 }
+
+
+STDMETHODIMP CSimpleObjectXO::SomeOtherMethod2(BSTR s, BSTR* ret)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	_bstr_t bstrt = s;
+	bstrt = L"Hello from SomeOtherMethod2() " + bstrt;
+	*ret = bstrt.Detach();
+
+	return S_OK;
+}

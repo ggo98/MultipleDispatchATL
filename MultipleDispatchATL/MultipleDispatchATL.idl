@@ -44,6 +44,7 @@ interface ISimpleObject2 : ISimpleObject
 interface ISomeOtherInterface : IDispatch
 {
 	[id(1)] HRESULT SomeOtherMethod();
+	[id(2)] HRESULT SomeOtherMethod2([in] BSTR s, [out, retval] BSTR* ret);
 };
 [
 	uuid(8deb85d1-cbbc-4cda-bfed-6e348e79df19),
@@ -64,6 +65,9 @@ library MultipleDispatchATLLib
 
 		// add-3rd-interface
 		interface ISomeOtherInterface;
+
+		// add-support-for-IProvideClassInfo
+		interface IProvideClassInfo;
 	};
 	//[
 	//	uuid(1f3eefea-7068-4119-bd9d-fda0b350641b)

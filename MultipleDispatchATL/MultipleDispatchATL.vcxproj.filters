@@ -73,9 +73,8 @@
     <None Include="SimpleObjectXO.rgs">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="__VBS\test.VBS">
-      <Filter>Source Files</Filter>
-    </None>
+    <None Include="__VBS\test.VBS" />
+    <None Include="__JS\test.JS" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MultipleDispatchATL.idl">

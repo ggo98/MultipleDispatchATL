@@ -402,6 +402,10 @@ EXTERN_C const IID IID_ISomeOtherInterface;
     public:
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE SomeOtherMethod( void) = 0;
         
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SomeOtherMethod2( 
+            /* [in] */ BSTR s,
+            /* [retval][out] */ BSTR *ret) = 0;
+        
     };
     
     
@@ -471,6 +475,12 @@ EXTERN_C const IID IID_ISomeOtherInterface;
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SomeOtherMethod )( 
             ISomeOtherInterface * This);
         
+        DECLSPEC_XFGVIRT(ISomeOtherInterface, SomeOtherMethod2)
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SomeOtherMethod2 )( 
+            ISomeOtherInterface * This,
+            /* [in] */ BSTR s,
+            /* [retval][out] */ BSTR *ret);
+        
         END_INTERFACE
     } ISomeOtherInterfaceVtbl;
 
@@ -509,6 +519,9 @@ EXTERN_C const IID IID_ISomeOtherInterface;
 
 #define ISomeOtherInterface_SomeOtherMethod(This)	\
     ( (This)->lpVtbl -> SomeOtherMethod(This) ) 
+
+#define ISomeOtherInterface_SomeOtherMethod2(This,s,ret)	\
+    ( (This)->lpVtbl -> SomeOtherMethod2(This,s,ret) ) 
 
 #endif /* COBJMACROS */
 

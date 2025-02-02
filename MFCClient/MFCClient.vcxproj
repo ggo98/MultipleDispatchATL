@@ -209,6 +209,14 @@
   <ItemGroup>
     <Image Include="res\MFCClient.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultipleDispatchATL\MultipleDispatchATL.vcxproj">
+      <Project>{77f1646e-72ca-426d-85db-2e54b2ccbd9a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryDispatchForScripts\QueryDispatchForScripts.vcxproj">
+      <Project>{e1494b85-ece5-4969-ba2d-d8d5bc1b9efa}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
