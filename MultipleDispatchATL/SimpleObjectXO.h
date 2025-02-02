@@ -87,6 +87,7 @@ public:
 
 	// add-3rd-interface
 	STDMETHOD(SomeOtherMethod)(void);
+	STDMETHOD(SomeOtherMethod2)(BSTR s, BSTR* ret);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(SimpleObjectXO), CSimpleObjectXO)

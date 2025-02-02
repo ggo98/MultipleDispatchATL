@@ -44,6 +44,7 @@ interface ISimpleObject2 : ISimpleObject
 interface ISomeOtherInterface : IDispatch
 {
 	[id(1)] HRESULT SomeOtherMethod();
+	[id(2)] HRESULT SomeOtherMethod2([in] BSTR s, [out, retval] BSTR* ret);
 };
 [
 	uuid(8deb85d1-cbbc-4cda-bfed-6e348e79df19),
