@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TlbImpPath>C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\TlbImp.exe</TlbImpPath>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -113,6 +116,9 @@
       <ModuleDefinitionFile>.\QueryDispatchForScripts.def</ModuleDefinitionFile>
       <RegisterOutput>true</RegisterOutput>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TlbImpPath)" "$(ProjectDir)QueryDispatchForScripts.tlb" /out:"$(ProjectDir)Interop.QueryDispatchForScripts.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -145,6 +151,9 @@
       <ModuleDefinitionFile>.\QueryDispatchForScripts.def</ModuleDefinitionFile>
       <RegisterOutput>true</RegisterOutput>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TlbImpPath)" "$(ProjectDir)QueryDispatchForScripts.tlb" /out:"$(ProjectDir)Interop.QueryDispatchForScripts.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -179,6 +188,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <RegisterOutput>true</RegisterOutput>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TlbImpPath)" "$(ProjectDir)QueryDispatchForScripts.tlb" /out:"$(ProjectDir)Interop.QueryDispatchForScripts.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -212,6 +224,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <RegisterOutput>true</RegisterOutput>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TlbImpPath)" "$(ProjectDir)QueryDispatchForScripts.tlb" /out:"$(ProjectDir)Interop.QueryDispatchForScripts.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="dllmain.h" />

@@ -162,9 +162,6 @@ Exit 1
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\MultipleDispatchATL\MultipleDispatchATLps.def" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\MultipleDispatchATL\dlldata.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
@@ -210,6 +207,9 @@ Exit 1
   </ItemGroup>
   <ItemGroup>
     <Text Include="__MYREADME.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\MultipleDispatchATL\MultipleDispatchATLps.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
