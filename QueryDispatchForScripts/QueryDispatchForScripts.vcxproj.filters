@@ -79,4 +79,7 @@
       <Filter>Source Files</Filter>
     </Midl>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="__MYREADME.txt" />
+  </ItemGroup>
 </Project>

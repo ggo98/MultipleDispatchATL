@@ -22,7 +22,8 @@ class ATL_NO_VTABLE CQueryDispatchHelperXO :
 	public CComObjectRootEx<CComMultiThreadModel>,
 	public CComCoClass<CQueryDispatchHelperXO, &CLSID_QueryDispatchHelperXO>,
 	public ISupportErrorInfo,
-	public IDispatchImpl<IQueryDispatchHelper, &IID_IQueryDispatchHelper, &LIBID_QueryDispatchForScriptsLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<IQueryDispatchHelper, &IID_IQueryDispatchHelper, &LIBID_QueryDispatchForScriptsLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	public IProvideClassInfoImpl<&CLSID_QueryDispatchHelperXO>
 {
 public:
 	CQueryDispatchHelperXO()
@@ -31,7 +32,7 @@ public:
 
 	~CQueryDispatchHelperXO()
 	{
-		::MessageBox(0, L"CQueryDispatchHelperXOdtor", L"", MB_SERVICE_NOTIFICATION);
+		::MessageBox(0, L"CQueryDispatchHelperXO dtor", L"", MB_SERVICE_NOTIFICATION);
 	}
 
 DECLARE_REGISTRY_RESOURCEID(106)
@@ -41,6 +42,7 @@ BEGIN_COM_MAP(CQueryDispatchHelperXO)
 	COM_INTERFACE_ENTRY(IQueryDispatchHelper)
 	COM_INTERFACE_ENTRY(IDispatch)
 	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+	COM_INTERFACE_ENTRY(IProvideClassInfo)
 END_COM_MAP()
 
 // ISupportsErrorInfo

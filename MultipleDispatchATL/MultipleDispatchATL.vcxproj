@@ -273,6 +273,7 @@
     <None Include="MultipleDispatchATL.def" />
     <None Include="MultipleDispatchATL.rgs" />
     <None Include="SimpleObjectXO.rgs" />
+    <None Include="__JS\test.JS" />
     <None Include="__VBS\test.VBS" />
   </ItemGroup>
   <ItemGroup>

@@ -32,6 +32,7 @@ BEGIN_MESSAGE_MAP(CMFCClientDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDOK, &CMFCClientDlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFCClientDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -107,12 +108,34 @@ void CMFCClientDlg::OnBnClickedOk()
 
 		MultipleDispatchATLLib::ISomeOtherInterfacePtr I2 = I;
 		I2->SomeOtherMethod();
+
+		QueryDispatchForScriptsLib::IQueryDispatchHelperPtr QDHelper(__uuidof(QueryDispatchForScriptsLib::QueryDispatchHelperXO));
+		QDHelper->QueryDispatch(I, L"IQueryDispatchHelper");
 	}
 	catch (_com_error e)
 	{
-		AfxMessageBox(e.Description() + L";" + e.ErrorMessage());
+		AfxMessageBox(e.Description() + L"; " + e.ErrorMessage());
 	}
 
 	// TODO: Add your control notification handler code here
 	//CDialogEx::OnOK();
+}
+
+
+void CMFCClientDlg::OnBnClickedButton1()
+{
+	try
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			OnBnClickedOk();
+			QueryDispatchForScriptsLib::IQueryDispatchHelperPtr QDHelper(__uuidof(QueryDispatchForScriptsLib::QueryDispatchHelperXO));
+			QDHelper->QueryDispatch(QDHelper, L"IQueryDispatchHelper");
+		}
+		// TODO: Add your control notification handler code here
+	}
+	catch (_com_error e)
+	{
+		AfxMessageBox(e.Description() + L"; " + e.ErrorMessage());
+	}
 }

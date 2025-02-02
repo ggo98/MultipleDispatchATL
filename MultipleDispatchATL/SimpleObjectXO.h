@@ -26,7 +26,9 @@ class ATL_NO_VTABLE CSimpleObjectXO :
 	// add-2nd-interface
 	public IDispatchImpl<ISimpleObject2, &IID_ISimpleObject2, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
 	// add-3rd-interface
-	public IDispatchImpl<ISomeOtherInterface, &IID_ISomeOtherInterface, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<ISomeOtherInterface, &IID_ISomeOtherInterface, &LIBID_MultipleDispatchATLLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	// add-support-for-IProvideClassInfo
+	public IProvideClassInfoImpl<&CLSID_SimpleObjectXO>
 {
 public:
 	CSimpleObjectXO()
@@ -54,6 +56,8 @@ BEGIN_COM_MAP(CSimpleObjectXO)
 	COM_INTERFACE_ENTRY2(IDispatch, ISomeOtherInterface)
 
 	COM_INTERFACE_ENTRY(ISupportErrorInfo)
+	// add-support-for-IProvideClassInfo
+	COM_INTERFACE_ENTRY(IProvideClassInfo)
 END_COM_MAP()
 
 
