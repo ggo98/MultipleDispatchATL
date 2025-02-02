@@ -31,6 +31,7 @@ library QueryDispatchForScriptsLib
 	coclass QueryDispatchHelperXO
 	{
 		[default] interface IQueryDispatchHelper;
+		interface IProvideClassInfo;
 	};
 };
 

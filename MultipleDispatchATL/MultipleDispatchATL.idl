@@ -64,6 +64,9 @@ library MultipleDispatchATLLib
 
 		// add-3rd-interface
 		interface ISomeOtherInterface;
+
+		// add-support-for-IProvideClassInfo
+		interface IProvideClassInfo;
 	};
 	//[
 	//	uuid(1f3eefea-7068-4119-bd9d-fda0b350641b)
