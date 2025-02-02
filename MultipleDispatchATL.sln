@@ -24,6 +24,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QueryDispatchForScriptsPS",
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetClient", "dotnetClient\dotnetClient.csproj", "{0D3BA34D-C3F8-4B1B-BD82-18AB2217A2E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{77F1646E-72CA-426D-85DB-2E54B2CCBD9A} = {77F1646E-72CA-426D-85DB-2E54B2CCBD9A}
+		{E1494B85-ECE5-4969-BA2D-D8D5BC1B9EFA} = {E1494B85-ECE5-4969-BA2D-D8D5BC1B9EFA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,11 +88,9 @@ Global
 		{E1494B85-ECE5-4969-BA2D-D8D5BC1B9EFA}.Release|x86.ActiveCfg = Release|Win32
 		{E1494B85-ECE5-4969-BA2D-D8D5BC1B9EFA}.Release|x86.Build.0 = Release|Win32
 		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Debug|Any CPU.Build.0 = Debug|x64
 		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Debug|x64.ActiveCfg = Debug|x64
 		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Debug|x86.ActiveCfg = Debug|Win32
 		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Release|Any CPU.ActiveCfg = Release|x64
-		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Release|Any CPU.Build.0 = Release|x64
 		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Release|x64.ActiveCfg = Release|x64
 		{010951A9-5127-4159-8B21-9AFF74FFCBF2}.Release|x86.ActiveCfg = Release|Win32
 		{0D3BA34D-C3F8-4B1B-BD82-18AB2217A2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

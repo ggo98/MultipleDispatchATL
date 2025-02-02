@@ -19,11 +19,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\MultipleDispatchATL\MultipleDispatchATLps.def">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\MultipleDispatchATL\MultipleDispatchATL_i.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -36,5 +31,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="__MYREADME.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\MultipleDispatchATL\MultipleDispatchATLps.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

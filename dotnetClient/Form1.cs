@@ -20,21 +20,21 @@ namespace dotnetClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MultipleDispatchATLLib.ISimpleObject2 I = null;
-            QueryDispatchForScriptsLib.IQueryDispatchHelper QDHelper = null;
-            MultipleDispatchATLLib.ISomeOtherInterface I2 = null;
-            MultipleDispatchATLLib.ISomeOtherInterface I3 = null;
+            Interop.MultipleDispatchATL.ISimpleObject2 I = null;
+            Interop.QueryDispatchForScripts.IQueryDispatchHelper QDHelper = null;
+            Interop.MultipleDispatchATL.ISomeOtherInterface I2 = null;
+            Interop.MultipleDispatchATL.ISomeOtherInterface I3 = null;
             try
             {
-                I = new MultipleDispatchATLLib.SimpleObjectXO();
+                I = new Interop.MultipleDispatchATL.SimpleObjectXO();
                 MessageBox.Show(I.Method1(".NET"));
                 MessageBox.Show(I.Method2(2).ToString());
 
-                I2 = I as MultipleDispatchATLLib.ISomeOtherInterface;
+                I2 = I as Interop.MultipleDispatchATL.ISomeOtherInterface;
                 I2.SomeOtherMethod();
 
                 // pour voir ce que ça donne, inutile d'utiliser ce biais en C#
-                QDHelper = new QueryDispatchForScriptsLib.QueryDispatchHelperXO();
+                QDHelper = new Interop.QueryDispatchForScripts.QueryDispatchHelperXO();
                 I3 = QDHelper.QueryDispatch(I, "ISomeOtherInterface");
                 I3.SomeOtherMethod();
             }

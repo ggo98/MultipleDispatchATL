@@ -89,7 +89,8 @@
       <RegisterOutput>true</RegisterOutput>
     </Link>
     <PreBuildEvent>
-      <Command>if exist dlldata.c goto :END
+      <Command>GOTO :END
+if exist dlldata.c goto :END
 echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
 Exit 1
 :END
@@ -107,7 +108,8 @@ Exit 1
       <RegisterOutput>true</RegisterOutput>
     </Link>
     <PreBuildEvent>
-      <Command>if exist dlldata.c goto :END
+      <Command>GOTO :END
+if exist dlldata.c goto :END
 echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
 Exit 1
 :END
@@ -128,7 +130,8 @@ Exit 1
       <RegisterOutput>true</RegisterOutput>
     </Link>
     <PreBuildEvent>
-      <Command>if exist dlldata.c goto :END
+      <Command>GOTO :END
+if exist dlldata.c goto :END
 echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
 Exit 1
 :END
@@ -149,7 +152,8 @@ Exit 1
       <RegisterOutput>true</RegisterOutput>
     </Link>
     <PreBuildEvent>
-      <Command>if exist dlldata.c goto :END
+      <Command>GOTO :END
+if exist dlldata.c goto :END
 echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
 Exit 1
 :END
@@ -203,6 +207,9 @@ Exit 1
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="__MYREADME.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
