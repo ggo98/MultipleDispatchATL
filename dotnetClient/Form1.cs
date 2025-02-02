@@ -33,6 +33,7 @@ namespace dotnetClient
                 I2 = I as MultipleDispatchATLLib.ISomeOtherInterface;
                 I2.SomeOtherMethod();
 
+                // pour voir ce que ça donne, inutile d'utiliser ce biais en C#
                 QDHelper = new QueryDispatchForScriptsLib.QueryDispatchHelperXO();
                 I3 = QDHelper.QueryDispatch(I, "ISomeOtherInterface");
                 I3.SomeOtherMethod();

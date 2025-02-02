@@ -109,8 +109,10 @@ void CMFCClientDlg::OnBnClickedOk()
 		MultipleDispatchATLLib::ISomeOtherInterfacePtr I2 = I;
 		I2->SomeOtherMethod();
 
+		// pour voir ce que ça donne, inutile d'utiliser ce biais en C++
 		QueryDispatchForScriptsLib::IQueryDispatchHelperPtr QDHelper(__uuidof(QueryDispatchForScriptsLib::QueryDispatchHelperXO));
-		QDHelper->QueryDispatch(I, L"IQueryDispatchHelper");
+		MultipleDispatchATLLib::ISomeOtherInterfacePtr I3 = QDHelper->QueryDispatch(I, L"ISomeOtherInterface");
+		I3->SomeOtherMethod();
 	}
 	catch (_com_error e)
 	{
