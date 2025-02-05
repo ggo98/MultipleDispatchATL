@@ -40,6 +40,9 @@
     <ClInclude Include="QueryDispatchHelperXO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AutoReleaseTypeAttr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QueryDispatchForScripts.cpp">
@@ -55,6 +58,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="QueryDispatchHelperXO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoReleaseTypeAttr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
