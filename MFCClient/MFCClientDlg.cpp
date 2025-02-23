@@ -101,7 +101,7 @@ void CMFCClientDlg::OnBnClickedOk()
 		//for (int i = 0; i < 100000; i++)
 		//	I->Method1("MFC");
 		AfxMessageBox(I->Method1("MFC"));
-
+		
 		CString s;
 		s.Format(L"%d", I->Method2(10));
 		AfxMessageBox(s);
@@ -128,7 +128,7 @@ void CMFCClientDlg::OnBnClickedButton1()
 {
 	try
 	{
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 1; i++)
 		{
 			OnBnClickedOk();
 			QueryDispatchForScriptsLib::IQueryDispatchHelperPtr QDHelper(__uuidof(QueryDispatchForScriptsLib::QueryDispatchHelperXO));

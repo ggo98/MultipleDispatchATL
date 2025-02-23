@@ -121,7 +121,8 @@
       <RegisterOutput>true</RegisterOutput>
     </Link>
     <PostBuildEvent>
-      <Command>"$(TlbImpPath)" "$(ProjectDir)MultipleDispatchATL.tlb" /out:"$(ProjectDir)Interop.MultipleDispatchATL.dll"
+      <Command>ECHO "$(TlbImpPath)" "$(ProjectDir)MultipleDispatchATL.tlb" /out:"$(ProjectDir)Interop.MultipleDispatchATL.dll"
+"$(TlbImpPath)" "$(ProjectDir)MultipleDispatchATL.tlb" /out:"$(ProjectDir)Interop.MultipleDispatchATL.dll"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -234,7 +235,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>"$(TlbImpPath)" "$(ProjectDir)MultipleDispatchATL.tlb" /out:"$(ProjectDir)Interop.MultipleDispatchATL.dll"
+      <Command>ECHO "$(TlbImpPath)" "$(ProjectDir)MultipleDispatchATL.tlb" /out:"$(ProjectDir)Interop.MultipleDispatchATL.dll"
+"$(TlbImpPath)" "$(ProjectDir)MultipleDispatchATL.tlb" /out:"$(ProjectDir)Interop.MultipleDispatchATL.dll"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
