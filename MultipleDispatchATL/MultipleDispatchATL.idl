@@ -59,9 +59,21 @@ library MultipleDispatchATLLib
 	coclass SimpleObjectXO
 	{
 		//[default] interface ISimpleObject;
-		// add-2nd-interface
-		[default] interface ISimpleObject2;
-		interface ISimpleObject;
+		// add-2nd-interface 
+		// not a so good idea to change the default interface:
+		// the .NET client will generate an error 
+		// if the version of MultipleDispatchATL is not uo to date
+		// (
+		// ...
+		// Interop.MultipleDispatchATL.ISimpleObject I = null;
+		// ...
+		// // <= error: something like "no such interface [uuid of ISimpleObject2]" or "can't cast ComObject to interface [uuid of ISimpleObject2]"
+		// I = new Interop.MultipleDispatchATL.SimpleObjectXO(); 
+		// )
+		//[default] interface ISimpleObject2;
+		//interface ISimpleObject;
+		[default] interface ISimpleObject;
+		interface ISimpleObject2;
 
 		// add-3rd-interface
 		interface ISomeOtherInterface;

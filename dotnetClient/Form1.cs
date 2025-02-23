@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interop.MultipleDispatchATL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,23 +21,25 @@ namespace dotnetClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Interop.MultipleDispatchATL.ISimpleObject2 I = null;
+            Interop.MultipleDispatchATL.ISimpleObject I = null;
+            Interop.MultipleDispatchATL.ISimpleObject2 I2 = null;
             Interop.QueryDispatchForScripts.IQueryDispatchHelper QDHelper = null;
-            Interop.MultipleDispatchATL.ISomeOtherInterface I2 = null;
             Interop.MultipleDispatchATL.ISomeOtherInterface I3 = null;
+            Interop.MultipleDispatchATL.ISomeOtherInterface I4 = null;
             try
             {
                 I = new Interop.MultipleDispatchATL.SimpleObjectXO();
                 MessageBox.Show(I.Method1(".NET"));
-                MessageBox.Show(I.Method2(2).ToString());
+                I2 = I as ISimpleObject2;
+                MessageBox.Show(I2.Method2(2).ToString());
 
-                I2 = I as Interop.MultipleDispatchATL.ISomeOtherInterface;
-                I2.SomeOtherMethod();
+                I3 = I as Interop.MultipleDispatchATL.ISomeOtherInterface;
+                I3.SomeOtherMethod();
 
                 // pour voir ce que ça donne, inutile d'utiliser ce biais en C#
                 QDHelper = new Interop.QueryDispatchForScripts.QueryDispatchHelperXO();
-                I3 = QDHelper.QueryDispatch(I, "ISomeOtherInterface");
-                I3.SomeOtherMethod();
+                I4 = QDHelper.QueryDispatch(I, "ISomeOtherInterface");
+                I4.SomeOtherMethod();
             }
             catch (Exception ex)
             {
@@ -44,12 +47,12 @@ namespace dotnetClient
             }
             finally
             {
-                if (null != I3)
-                    Marshal.FinalReleaseComObject(I3);
+                if (null != I4)
+                    Marshal.FinalReleaseComObject(I4);
                 if (null != QDHelper)
                     Marshal.FinalReleaseComObject(QDHelper);
-                if (null != I2)
-                    Marshal.FinalReleaseComObject(I2);
+                if (null != I3)
+                    Marshal.FinalReleaseComObject(I3);
                 if (null != I)
                     Marshal.FinalReleaseComObject(I);
             }
