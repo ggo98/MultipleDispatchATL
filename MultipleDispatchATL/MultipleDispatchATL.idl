@@ -62,12 +62,14 @@ library MultipleDispatchATLLib
 		// add-2nd-interface 
 		// not a so good idea to change the default interface:
 		// the .NET client will generate an error 
-		// if the version of MultipleDispatchATL is not uo to date
+		// if the version of MultipleDispatchATL is not up to date (= the default interface is not ISimpleObject2)
 		// (
 		// ...
 		// Interop.MultipleDispatchATL.ISimpleObject I = null;
 		// ...
-		// // <= error: something like "no such interface [uuid of ISimpleObject2]" or "can't cast ComObject to interface [uuid of ISimpleObject2]"
+		// /*
+		// Unable to cast COM object of type 'System.__ComObject' to interface type 'MultipleDispatchATL.SimpleObjectXO'. This operation failed because the QueryInterface call on the COM component for the interface with IID '{80FAA31E-8E30-4711-9F7A-E530836F5BE5}' failed due to the following error: No such interface supported (Exception from HRESULT: 0x80004002 (E_NOINTERFACE))
+		// */
 		// I = new Interop.MultipleDispatchATL.SimpleObjectXO(); 
 		// )
 		//[default] interface ISimpleObject2;
