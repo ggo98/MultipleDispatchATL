@@ -3,10 +3,13 @@
 #include "pch.h"
 #include "QueryDispatchHelperXO.h"
 
+#include "AutoReleaseTypeAttr.h"
+
 #include <comdef.h>
 
 #include <regex>
 #include <string>
+#include <map>
 
 // CQueryDispatchHelperXO
 
@@ -34,7 +37,7 @@ static bool IsValidGUID(const std::wstring& guid)
 
 static HRESULT FindInterfaceByName(IUnknown* pUnknown, const _bstr_t& interfaceName, IID& iid)
 {
-	if (!pUnknown) 
+	if (!pUnknown)
 		return E_POINTER;
 
 	// Get IProvideClassInfo
@@ -49,7 +52,7 @@ static HRESULT FindInterfaceByName(IUnknown* pUnknown, const _bstr_t& interfaceN
 	// Get ITypeInfo
 	ITypeInfo* pTypeInfo = NULL;
 	hr = pClassInfo->GetClassInfo(&pTypeInfo);
-	if (FAILED(hr)) 
+	if (FAILED(hr))
 		return hr;
 	ITypeInfoPtr typeInfo;
 	typeInfo.Attach(pTypeInfo); // for automatic release
@@ -57,22 +60,23 @@ static HRESULT FindInterfaceByName(IUnknown* pUnknown, const _bstr_t& interfaceN
 	// Get TYPEATTR
 	TYPEATTR* pTypeAttr = nullptr;
 	hr = pTypeInfo->GetTypeAttr(&pTypeAttr);
-	if (FAILED(hr)) 
+	if (FAILED(hr))
 		return hr;
+	AutoReleaseTypeAttr ARTypeAttr(pTypeInfo, pTypeAttr);
 
 	bool found = false;
-	for (UINT i = 0; i < pTypeAttr->cImplTypes && !found; i++) 
+	for (UINT i = 0; i < pTypeAttr->cImplTypes && !found; i++)
 	{
 		HREFTYPE hRefType;
-		if (SUCCEEDED(pTypeInfo->GetRefTypeOfImplType(i, &hRefType))) 
+		if (SUCCEEDED(pTypeInfo->GetRefTypeOfImplType(i, &hRefType)))
 		{
 			ITypeInfo* pRefTypeInfo = NULL;
-			if (SUCCEEDED(pTypeInfo->GetRefTypeInfo(hRefType, &pRefTypeInfo))) 
+			if (SUCCEEDED(pTypeInfo->GetRefTypeInfo(hRefType, &pRefTypeInfo)))
 			{
 				ITypeInfoPtr refTypeInfo;
 				refTypeInfo.Attach(pRefTypeInfo); // for automatic release
 				TYPEATTR* pRefTypeAttr = NULL;
-				if (SUCCEEDED(pRefTypeInfo->GetTypeAttr(&pRefTypeAttr))) 
+				if (SUCCEEDED(pRefTypeInfo->GetTypeAttr(&pRefTypeAttr)))
 				{
 					_bstr_t bstr_tName;
 					if (SUCCEEDED(pRefTypeInfo->GetDocumentation(MEMBERID_NIL, bstr_tName.GetAddress(), NULL, NULL, NULL)))
@@ -84,11 +88,53 @@ static HRESULT FindInterfaceByName(IUnknown* pUnknown, const _bstr_t& interfaceN
 							found = true;
 						}
 					}
+					AutoReleaseTypeAttr ARTypeAttr(pRefTypeInfo, pRefTypeAttr);
 				}
 			}
 		}
 	}
 	return found ? S_OK : E_FAIL;
+}
+
+static HRESULT GetIDispatchMethods(IDispatch* pDisp,
+	std::map<long, std::wstring>& methodsMap)
+{
+	HRESULT hr = S_OK;
+
+	CComPtr<IDispatch> spDisp(pDisp);
+	if (!spDisp)
+		return E_INVALIDARG;
+
+	CComPtr<ITypeInfo> spTypeInfo;
+	hr = spDisp->GetTypeInfo(0, 0, &spTypeInfo);
+	if (SUCCEEDED(hr) && spTypeInfo)
+	{
+		TYPEATTR* pTatt = nullptr;
+		hr = spTypeInfo->GetTypeAttr(&pTatt);
+		if (SUCCEEDED(hr) && pTatt)
+		{
+			FUNCDESC* fd = nullptr;
+			for (int i = 0; i < pTatt->cFuncs; ++i)
+			{
+				hr = spTypeInfo->GetFuncDesc(i, &fd);
+				if (SUCCEEDED(hr) && fd)
+				{
+					CComBSTR funcName;
+					spTypeInfo->GetDocumentation(fd->memid, &funcName, nullptr, nullptr, nullptr);
+					if (funcName.Length() > 0)
+					{
+						methodsMap[fd->memid] = funcName;
+					}
+
+					spTypeInfo->ReleaseFuncDesc(fd);
+				}
+			}
+
+			spTypeInfo->ReleaseTypeAttr(pTatt);
+		}
+	}
+
+	return hr;
 }
 
 STDMETHODIMP CQueryDispatchHelperXO::QueryDispatch(IDispatch* I, BSTR IIDStr, IDispatch** ret)
@@ -98,14 +144,22 @@ STDMETHODIMP CQueryDispatchHelperXO::QueryDispatch(IDispatch* I, BSTR IIDStr, ID
 		|| !ret)
 		return E_POINTER;
 
+	//for (int i = 0; i < 1001; i++)
+	//{
+	//	std::map<long, std::wstring> methodsMap;
+	//	GetIDispatchMethods(I, methodsMap);
+	//}
+	//return E_FAIL;
+
 	IID iid;
 	HRESULT hr = S_OK;
 
 	_bstr_t iid_bstr_t = IIDStr;
 	if (!IsValidGUID((wchar_t*)iid_bstr_t))
-	//if (!true)
 	{
-		hr = FindInterfaceByName(I, IIDStr, iid);
+		// des leaks de BSTR (au moins) semblent avoir lieu, bien que les TYPEATTR* soient désormais releasés correctement (hopefully) dans FindInterfaceByName().
+		//for (int i=0; i<1000000; i++)
+		hr = FindInterfaceByName(I, IIDStr, iid); 
 	}
 	else
 	{
