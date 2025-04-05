@@ -113,6 +113,10 @@ void CMFCClientDlg::OnBnClickedOk()
 		QueryDispatchForScriptsLib::IQueryDispatchHelperPtr QDHelper(__uuidof(QueryDispatchForScriptsLib::QueryDispatchHelperXO));
 		MultipleDispatchATLLib::ISomeOtherInterfacePtr I3 = QDHelper->QueryDispatch(I, L"ISomeOtherInterface");
 		I3->SomeOtherMethod();
+
+		IUnknown* test = I.GetInterfacePtr();
+		MultipleDispatchATLLib::ISimpleObjectPtr testPtr;
+		testPtr = test;
 	}
 	catch (_com_error e)
 	{
